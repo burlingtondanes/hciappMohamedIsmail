@@ -1,5 +1,17 @@
-
 <!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>A Pen by  Mohamed</title>
+  
+  
+  
+  
+  
+</head>
+
+<body>
+  
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -87,6 +99,7 @@ body, html {
   top: 30%;
   height: 50%;
   width: 30%;
+  background: white;
 }
 
 /* Turn off parallax scrolling for tablets and phones */
@@ -106,7 +119,7 @@ body, html {
     <input class = "tesseract" type="text" id="url" placeholder="Image URL" />
     <input class = "btn btn-primary" type="button" id="go_button" value="Run" />
 
-    <input class = "results" id="ocr_results"> </input>
+    <form class = "results" id="ocr_results"> </form>
     <div class = "results" id="ocr_status"> </div>
 
     <div class="caption">
@@ -117,30 +130,9 @@ body, html {
 
 
 </body>
+  <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
 
-<script>
-function runOCR(url) {
-    Tesseract.recognize(url)
-         .then(function(result) {
-            document.getElementById("ocr_results")
-                    .innerText = result.text;
-         }).progress(function(result) {
-            document.getElementById("ocr_status")
-                    .innerText = result["status"] + " (" +
-                        (result["progress"] * 100) + "%)";
-        });
-}
+    <script src="js/index.js"></script>
 
-document.getElementById("go_button")
-        .addEventListener("click", function(e) {
-            var url = document.getElementById("url").value;
-            runOCR(url);
-        });
-
-
-</script>
-
-<script src="https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js">
-</script>
-
+</body>
 </html>
