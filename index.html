@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+.bgimg-1 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("http://www.jodihelmer.com/wordpress/wp-content/uploads/2014/01/desk-and-typewriter.jpg");
+  min-height: 100%;
+}
+
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+.caption span.title {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+  position: absolute;
+  left: 76%;
+  bottom: 200%
+}
+
+.tesseract {
+
+  position: absolute;
+  top: 48%;
+  left: 32%;
+  width: 35%;
+    height: 44px;
+    padding: 8px 165px 8px 16px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 19px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.btn {
+  position: absolute;
+  top: 56%;
+  left: 44%;
+  width: 10%;
+    height: 44px;
+
+}
+
+.results {
+
+  position: absolute;
+  left: 69%;
+  top: 30%;
+  height: 50%;
+  width: 30%;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1 {
+        background-attachment: scroll;
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+  <div class="bgimg-1">
+
+    <input class = "tesseract" type="text" id="url" placeholder="Image URL" />
+    <input class = "btn btn-primary" type="button" id="go_button" value="Run" />
+
+    <input class = "results" id="ocr_results"> </input>
+    <div class = "results" id="ocr_status"> </div>
+
+    <div class="caption">
+      <span class="border">OCR SCANNER</span>
+      <span class="title">RESULTS</span>
+    </div>
+  </div>
+
+
+</body>
+
+<script>
+function runOCR(url) {
+    Tesseract.recognize(url)
+         .then(function(result) {
+            document.getElementById("ocr_results")
+                    .innerText = result.text;
+         }).progress(function(result) {
+            document.getElementById("ocr_status")
+                    .innerText = result["status"] + " (" +
+                        (result["progress"] * 100) + "%)";
+        });
+}
+
+document.getElementById("go_button")
+        .addEventListener("click", function(e) {
+            var url = document.getElementById("url").value;
+            runOCR(url);
+        });
+
+
+</script>
+
+<script src="https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js">
+</script>
+
+</html>
