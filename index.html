@@ -104,8 +104,18 @@ body, html {
   top: 30%;
   height: 50%;
   width: 30%;
-  background: white;
   z-index: 5;
+}
+
+.bgResults {
+
+  position: absolute;
+  left: 69%;
+  top: 30%;
+  height: 50%;
+  width: 30%;
+  background-color: white;
+  z-index: -1;
 }
 
 /* Turn off parallax scrolling for tablets and phones */
@@ -125,10 +135,12 @@ body, html {
     <input class = "tesseract" type="text" id="url" placeholder="Image URL" />
     <input class = "btn btn-primary" type="button" id="go_button" value="Run" />
 
+<form class="bgResults" action="index.html" method="get">
+
 
     <div class = "results" id="ocr_results"> </div>
     <div class = "results" id="ocr_status"> </div>
-
+</form>
 
     <div class="caption">
       <span class="border">OCR SCANNER</span>
