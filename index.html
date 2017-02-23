@@ -2,16 +2,16 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>A Pen by  Mohamed</title>
-  
-  
-  
-  
-  
+  <title>OCR HCI</title>
+
+
+
+
+
 </head>
 
 <body>
-  
+
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -69,18 +69,18 @@ body, html {
 
 .tesseract {
 
-  position: absolute;
+  position: absolute;;
   top: 48%;
   left: 32%;
   width: 35%;
-    height: 44px;
-    padding: 8px 165px 8px 16px;
-    border: none;
-    border-radius: 3px;
-    font-size: 16px;
-    line-height: 19px;
-    outline: none;
-    box-sizing: border-box;
+  height: 44px;
+  padding: 8px 165px 8px 16px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 19px;
+  outline: none;
+  box-sizing: border-box;
 }
 
 .btn {
@@ -119,8 +119,10 @@ body, html {
     <input class = "tesseract" type="text" id="url" placeholder="Image URL" />
     <input class = "btn btn-primary" type="button" id="go_button" value="Run" />
 
-    <form class = "results" id="ocr_results"> </form>
+    <form class = "results"
+    <div class = "results" id="ocr_results"> </div>
     <div class = "results" id="ocr_status"> </div>
+  </form>
 
     <div class="caption">
       <span class="border">OCR SCANNER</span>
@@ -131,7 +133,6 @@ body, html {
 
 </body>
   <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
-
     <script src="js/index.js"></script>
 
 </body>
