@@ -136,8 +136,9 @@ body, html {
 
   <div class="bgimg-1">
 
-    <input class = "tesseract" type="text" id="url" placeholder="Image URL" />
+    <input class = "tesseract" type="url" id="url" placeholder="Image URL starting with HTTPS" required pattern="https://.+"/>
     <input class = "btn btn-primary" type="button" id="go_button" value="Run" />
+
 
 
 
@@ -147,7 +148,7 @@ body, html {
 
 
     <div class="caption">
-      <span class="border">OCR SCANNER</span>
+      <span class="border">Image to Text SCANNER</span>
       <span class="title">RESULTS</span>
     </div>
   </div>
